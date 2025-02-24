@@ -1,10 +1,6 @@
 package Tests;
-
 import Pages.P01_LoginPage;
-import com.shaft.driver.DriverFactory;
 import com.shaft.driver.SHAFT;
-import jdk.jfr.Description;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,7 +10,6 @@ public class E2ETest {
     SHAFT.TestData.JSON data;
 
     @BeforeMethod
-
     public void Setup(){
         driver = new SHAFT.GUI.WebDriver();
         data = new SHAFT.TestData.JSON("data.json");

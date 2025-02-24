@@ -1,7 +1,9 @@
 package Pages;
-
 import com.shaft.driver.SHAFT;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class P03_CartPage {
     SHAFT.GUI.WebDriver driver;
@@ -23,6 +25,8 @@ public class P03_CartPage {
     //Methods
 
     public P03_CartPage checkOut(String name, String country, String city, String card, String month, String year){
+        WebDriverWait wait = new WebDriverWait(driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(d -> driver.element().waitUntilPresenceOfAllElementsLocatedBy(placeHolderBtn));
         driver.element().click(placeHolderBtn).
                 and().type(nameInput,name).
                 and().type(countryInput,country).

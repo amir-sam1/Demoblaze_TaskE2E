@@ -1,10 +1,8 @@
 package Pages;
-
 import com.shaft.driver.SHAFT;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class P01_LoginPage {
@@ -42,7 +40,8 @@ public class P01_LoginPage {
         driver.element().click(loginLink);
         WebDriverWait wait = new WebDriverWait(driver.getDriver(),Duration.ofSeconds(10));
         wait.until(d -> driver.element().waitUntilPresenceOfAllElementsLocatedBy(loginUserName));
-                driver.element().type(loginUserName,userName).
+        wait.until(d -> driver.element().waitUntilPresenceOfAllElementsLocatedBy(passwordInput));
+        driver.element().type(loginUserName,userName).
                 and().type(loginPassword,password).
                 and().click(loginBtn);
 
